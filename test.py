@@ -22,7 +22,32 @@ class SurveyApplicationTests(unittest.TestCase):
             self.assertEqual(self.app.filepath, 'sample.txt')
             self.assertEqual(len(self.app.questions_txt), 2)
 
+    def test_show_title(self):
+        self.app.title_entry.insert(0, "Sample Quiz")
+        self.app.show_title()
+        self.assertEqual(self.app.title_label['text'], "Sample Quiz")
+        self.assertFalse(self.app.title_entry.winfo_ismapped())
+        self.assertFalse(self.app.submit_title_btn.winfo_ismapped())
 
+    def test_add_question(self):
+        self.app.question_entry.insert(0, "What is the capital of France?")
+        self.app.answer_entry.insert(0, "Paris")
+        self.app.add_question()
+        self.assertEqual(len(self.app.questions), 1)
+        question = self.app.questions[0]
+        self.assertEqual(question['question'], "What is the capital of France?")
+        self.assertEqual(question['answer'], "Paris")
+        self.assertEqual(self.app.question_entry.get(), "")
+        self.assertEqual(self.app.answer_entry.get(), "")
+
+    def test_line_switch(self):
+        question = "This is a long question that needs to be wrapped"
+        self.app.question_label.configure(text=question)
+        width_question = self.app.question_label.winfo_width()
+        self.app.line_switch(question)
+        new_width_question = self.app.question_label.winfo_width()
+        self.assertEqual(new_width_question, width_question)
+        
 if __name__ == '__main__':
     unittest.main()
 
