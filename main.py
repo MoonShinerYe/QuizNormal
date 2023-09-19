@@ -255,3 +255,4 @@ class SurveyApplication(tk.Tk):
 if __name__ == '__main__':
     app = SurveyApplication()
     app.mainloop()
+    
