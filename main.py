@@ -64,6 +64,7 @@ class SurveyApplication(tk.Tk):
         self.submit_title_btn = tk.Button(text="Подтвердить", command=self.show_title,font = (14))
         self.submit_title_btn.pack()
         self.title_picture_add()
+        
     
     def title_picture_add(self):
         self.title_img = ImageTk.PhotoImage(Image.open("images/logo v22.jpg"))
