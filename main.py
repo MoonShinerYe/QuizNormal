@@ -56,7 +56,7 @@ class SurveyApplication(tk.Tk):
 
     def title_quiz(self):
         # Создаем метку для заголовка опроса
-        self.title_label = tk.Label(self, text= "Введите название опроса:", font = (20), bg= "#85d2c8")
+        self.title_label = tk.Label(self, text= "Введите название опроса:", font = (20), bg= "#ffffff")
         self.title_label.pack()
         self.title_entry = tk.Entry(self)
         self.title_entry.pack()
@@ -74,14 +74,14 @@ class SurveyApplication(tk.Tk):
     #self.resizable(width=True, height=True)
     def create_widgets(self):
         # Создаем метку для вопроса
-        self.question_label = tk.Label(self, text="Вопрос", bg= "#85d2c8")
+        self.question_label = tk.Label(self, text="Вопрос", bg= "#ffffff")
         self.question_label.pack()
 
         # Создаем поле для ввода вопроса
         self.question_entry = tk.Entry(self)
         self.question_entry.pack()
         # Создаем метку для ответа
-        self.answer_label = tk.Label(self, text="Ответ", bg= "#85d2c8")
+        self.answer_label = tk.Label(self, text="Ответ", bg= "#ffffff")
         self.answer_label.pack()
 
         # Создаем поле для ввода ответа
@@ -107,9 +107,9 @@ class SurveyApplication(tk.Tk):
     def result_count(self):
     #Считаем общий балл
         if self.open_file_flag == 0:
-            result_count_label = tk.Label(self, text = ("Общий балл: " + str(self.result_counter) + "/" + str(len(self.questions))), font=(20), bg= "#85d2c8")
+            result_count_label = tk.Label(self, text = ("Общий балл: " + str(self.result_counter) + "/" + str(len(self.questions))), font=(20), bg= "#ffffff")
         else:
-              result_count_label = tk.Label(self, text = ("Общий балл: " + str(self.result_counter) + "/" + str(len(self.questions_txt)-1)), font=(20), bg= "#85d2c8")
+              result_count_label = tk.Label(self, text = ("Общий балл: " + str(self.result_counter) + "/" + str(len(self.questions_txt)-1)), font=(20), bg= "#ffffff")
         result_count_label.pack(side=tk.BOTTOM)
     def add_question(self):
         # Получаем текст вопроса и ответа
@@ -216,7 +216,7 @@ class SurveyApplication(tk.Tk):
             
         else:
             result_text = self.question_num_text + ". " "Неверно!"
-        result_label = tk.Label(self, text = result_text, bg= "#85d2c8")
+        result_label = tk.Label(self, text = result_text, bg= "#ffffff")
         result_label.pack(expand=True)
 
 if __name__ == '__main__':
