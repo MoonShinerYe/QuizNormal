@@ -47,8 +47,40 @@ class SurveyApplicationTests(unittest.TestCase):
         self.app.line_switch(question)
         new_width_question = self.app.question_label.winfo_width()
         self.assertEqual(new_width_question, width_question)
-        
+
+    def test_submit_answer(self):
+        self.app.open_file_flag = 0
+        self.app.questions = [{'question': 'Q1', 'answer': 'A1'}, {'question': 'Q2', 'answer': 'A2'}]
+        self.app.question_index = 0
+        self.app.answer_entry.insert(0, "A1")
+        self.app.submit_answer()
+        self.assertEqual(self.app.result_counter, 1)
+        self.assertEqual(self.app.result_label_str, "1. Вопрос: Q1 Ответ: A1. Верно!")
+
+    def test_submit_quiz(self):
+        self.app.open_file_flag = 0
+        self.app.questions = [{'question': 'Q1', 'answer': 'A1'}, {'question': 'Q2', 'answer': 'A2'}]
+        self.app.submit_quiz_button.invoke()
+        self.assertFalse(self.app.question_entry.winfo_ismapped())
+        self.assertFalse(self.app.question_label.winfo_ismapped())
+        self.assertFalse(self.app.add_question_button.winfo_ismapped())
+        self.assertEqual(self.app.title_label['text'], "Опрос")
+        self.assertTrue(self.app.submit_button.winfo_ismapped())
+
+    def test_show_result(self):
+        self.app.open_file_flag = 0
+        self.app.questions = [{'question': 'Q1', 'answer': 'A1'}, {'question': 'Q2', 'answer': 'A2'}]
+        self.app.question_index = 0
+        with patch('sys.stdout', new=StringIO()) as mock_stdout:
+            self.app.show_result(True)
+            output = mock_stdout.getvalue().strip()
+            expected_output = "1. Вопрос: Q1 Ответ: A1. Верно!"
+            self.assertEqual(output, expected_output)
+
+            self.app.show_result(False)
+            output = mock_stdout.getvalue().strip()
+            expected_output += "\n2. Вопрос: Q1 Ответ: A1. Неверно!"
+            self.assertEqual(output, expected_output)
+
 if __name__ == '__main__':
     unittest.main()
-
-input()
