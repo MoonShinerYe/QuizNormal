@@ -1,4 +1,4 @@
-name: Run Test
+name: Run Tests
 
 on:
   push:
@@ -24,5 +24,5 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Run test
-        run: python -m unittest main.py
+      - name: Run tests
+        run: python -m unittest test.py
