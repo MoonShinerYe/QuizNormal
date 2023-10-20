@@ -1,10 +1,12 @@
+
+
 import unittest
 from tkinter import Tk
 from unittest.mock import patch
 from io import StringIO
 from main import SurveyApplication
 
-class SurveyApplicationTests(unittest.TestCase):
+class SurveyApplication(unittest.TestCase):
 
     def setUp(self):
         self.app = SurveyApplication()
