@@ -1,4 +1,3 @@
-
 import unittest
 from tkinter import filedialog
 from unittest.mock import patch, MagicMock
@@ -8,7 +7,7 @@ class TestSurveyApplication(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.app = SurveyApplication()
-        cls.app.open_file_flag = 1
+        cls.app.open_file_flag = True
 
     def test_open_file(self):
         with patch('tkinter.filedialog.askopenfilename') as mock_askopenfilename:
