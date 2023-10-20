@@ -23,6 +23,7 @@ jobs:
 
       - name: Install dependencies
         run: pip install -r requirements.txt
+        run: pip install {package_name}
 
       - name: Run tests
         run: python -m unittest main.py
