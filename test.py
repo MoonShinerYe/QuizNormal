@@ -7,7 +7,7 @@ from main import SurveyApplication
 class TestSurveyApplication(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.app = SurveyApplication()
+        cls.app = TestSurveyApplication()
         cls.app.open_file_flag = True
 
     def test_open_file(self):
