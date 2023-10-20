@@ -6,11 +6,6 @@ from main import SurveyApplication
 
 class SurveyApplicationTests(unittest.TestCase):
 
-    def setUp(self):
-        self.app = SurveyApplication()
-        self.app.title("QuizRunner")
-        self.app.geometry("500x500")
-
     def test_init(self):
         self.assertEqual(self.app.title(), "QuizRunner")
         self.assertEqual(self.app.geometry(), "500x500")
