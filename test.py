@@ -6,10 +6,13 @@ from main import SurveyApplication
 
 class SurveyApplicationTests(unittest.TestCase):
 
+    def setUp(self):
+        self.app = SurveyApplication(Tk())
+
     def test_init(self):
-        self.assertEqual(self.app.title(), "QuizRunner")
-        self.assertEqual(self.app.geometry(), "500x500")
-        self.assertFalse(self.app.resizable())
+        self.assertEqual(self.app.root.title(), "QuizRunner")
+        self.assertEqual(self.app.root.geometry(), "500x500")
+        self.assertFalse(self.app.root.resizable())
 
     def test_open_file(self):
         with patch('tkinter.filedialog.askopenfilename', return_value='sample.txt'):
