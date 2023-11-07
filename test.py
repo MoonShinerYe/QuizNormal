@@ -1,5 +1,5 @@
 import unittest
-from survey_application import SurveyApplication  # Assuming your class is in a file named 'survey_application.py'.
+# Assuming your class is in a file named 'survey_application.py'.
 import tkinter as tk
 
 class TestSurveyApplication(unittest.TestCase):
