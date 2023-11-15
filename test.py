@@ -2,7 +2,7 @@ import unittest
 from survey_application import SurveyApplication  # Assuming your class is in a file named 'survey_application.py'.
 import tkinter as tk
 
-class TestSurveyApplication(unittest.TestCase):
+class SurveyApplication(unittest.TestCase):
 
     def setUp(self):
         """Create an instance of the SurveyApplication before each test."""
